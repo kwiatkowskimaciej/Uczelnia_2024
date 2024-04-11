@@ -1,0 +1,2098 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/6/2024 2:12:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VAIO"
+  DTS:CreatorName="VAIO\User"
+  DTS:DTSID="{5CC2AA68-D0E0-4950-B119-F36F8D9812D4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{90E04033-14ED-4E9C-A6C5-E0042C19744C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A0598730-DE75-48E2-837A-1390CA993890}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimStudent]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{B5BE3094-7FDE-4AEA-91C7-7764B982D138}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR02_DW.ABDGR02]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[NrStudentaT]"
+                      cachedDataType="i4"
+                      cachedName="NrStudentaT"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NrStudentaT]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NrStudentaT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Imie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Imie"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Imie]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Imie]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Drugie_imie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Drugie_imie"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Drugie_imie]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Drugie_imie]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Nazwisko]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Nazwisko"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nazwisko]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nazwisko]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Data_urodzenia]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Data_urodzenia"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Data_urodzenia]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data_urodzenia]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[PESEL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="PESEL"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PESEL]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PESEL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Nr_telefonu]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Nr_telefonu"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nr_telefonu]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_telefonu]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Nr_konta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="26"
+                      cachedName="Nr_konta"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nr_konta]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_konta]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Kraj]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Kraj"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Kraj]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kraj]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Miasto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Miasto"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Miasto]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Miasto]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Ulica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Ulica"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ulica]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ulica]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Nr_budynku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="Nr_budynku"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nr_budynku]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_budynku]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Kod_pocztowy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Kod_pocztowy"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Kod_pocztowy]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kod_pocztowy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Stopien_studiow]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Stopien_studiow"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Stopien_studiow]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Stopien_studiow]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Kierunek_studiow]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Kierunek_studiow"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Kierunek_studiow]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kierunek_studiow]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].Columns[Srednia_ocen]"
+                      cachedDataType="numeric"
+                      cachedName="Srednia_ocen"
+                      cachedPrecision="3"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Srednia_ocen]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Srednia_ocen]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NrStudenta]"
+                      dataType="i4"
+                      name="NrStudenta" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[NrStudentaT]"
+                      dataType="i4"
+                      name="NrStudentaT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Imie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Imie" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Drugie_imie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Drugie_imie" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nazwisko]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nazwisko" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Data_urodzenia]"
+                      dataType="dbTimeStamp"
+                      name="Data_urodzenia" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PESEL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="PESEL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nr_telefonu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Nr_telefonu" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nr_konta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="26"
+                      name="Nr_konta" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Kraj]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Kraj" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Miasto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Miasto" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ulica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Ulica" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nr_budynku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Nr_budynku" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Kod_pocztowy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Kod_pocztowy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Stopien_studiow]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Stopien_studiow" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Kierunek_studiow]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Kierunek_studiow" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Srednia_ocen]"
+                      dataType="numeric"
+                      name="Srednia_ocen"
+                      precision="3"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Data_utworzenia]"
+                      dataType="dbTimeStamp"
+                      name="Data_utworzenia" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Data_modyfikacji]"
+                      dataType="dbTimeStamp"
+                      name="Data_modyfikacji" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimStudent] SET [Data_urodzenia] = ?,[Drugie_imie] = ?,[Email] = ?,[Imie] = ?,[Kierunek_studiow] = ?,[Kod_pocztowy] = ?,[Kraj] = ?,[Miasto] = ?,[Nazwisko] = ?,[Nr_budynku] = ?,[Nr_konta] = ?,[Nr_telefonu] = ?,[PESEL] = ?,[Srednia_ocen] = ?,[Stopien_studiow] = ?,[Ulica] = ? WHERE [NrStudentaT] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{B5BE3094-7FDE-4AEA-91C7-7764B982D138}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR02_DW.ABDGR02]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Data_urodzenia]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Data_urodzenia"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data_urodzenia]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Drugie_imie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Drugie_imie"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Drugie_imie]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Imie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Imie"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Imie]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Kierunek_studiow]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Kierunek_studiow"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kierunek_studiow]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Kod_pocztowy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Kod_pocztowy"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kod_pocztowy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Kraj]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Kraj"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kraj]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Miasto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Miasto"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Miasto]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Nazwisko]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Nazwisko"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nazwisko]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Nr_budynku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="Nr_budynku"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_budynku]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Nr_konta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="26"
+                      cachedName="Nr_konta"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_konta]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Nr_telefonu]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Nr_telefonu"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_telefonu]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[NrStudentaT]"
+                      cachedDataType="i4"
+                      cachedName="NrStudentaT"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NrStudentaT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[PESEL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="PESEL"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PESEL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Srednia_ocen]"
+                      cachedDataType="numeric"
+                      cachedName="Srednia_ocen"
+                      cachedPrecision="3"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Srednia_ocen]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Stopien_studiow]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Stopien_studiow"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Stopien_studiow]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[Ulica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Ulica"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ulica]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbTimeStamp"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      codePage="1252"
+                      dataType="str"
+                      length="26"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="Param_12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      dataType="numeric"
+                      name="Param_13"
+                      precision="3"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Param_14">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Param_15">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      dataType="i4"
+                      name="Param_16">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimStudentSt]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{9A753358-61F4-4181-A459-9ED5FF6407C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR02_ODS.ABDGR02]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NrStudentaT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NrStudentaT]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NrStudentaT]"
+                      name="NrStudentaT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Imie]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Imie]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Imie]"
+                      name="Imie"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Drugie_imie]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Drugie_imie]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Drugie_imie]"
+                      name="Drugie_imie"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nazwisko]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nazwisko]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nazwisko]"
+                      name="Nazwisko"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data_urodzenia]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Data_urodzenia]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data_urodzenia]"
+                      name="Data_urodzenia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PESEL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PESEL]"
+                      length="11"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PESEL]"
+                      name="PESEL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_telefonu]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nr_telefonu]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_telefonu]"
+                      name="Nr_telefonu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_konta]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nr_konta]"
+                      length="26"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_konta]"
+                      name="Nr_konta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kraj]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Kraj]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kraj]"
+                      name="Kraj"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Miasto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Miasto]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Miasto]"
+                      name="Miasto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ulica]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Ulica]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ulica]"
+                      name="Ulica"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_budynku]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nr_budynku]"
+                      length="5"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_budynku]"
+                      name="Nr_budynku"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kod_pocztowy]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Kod_pocztowy]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kod_pocztowy]"
+                      name="Kod_pocztowy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Stopien_studiow]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Stopien_studiow]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Stopien_studiow]"
+                      name="Stopien_studiow"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kierunek_studiow]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Kierunek_studiow]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kierunek_studiow]"
+                      name="Kierunek_studiow"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Srednia_ocen]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Srednia_ocen]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Srednia_ocen]"
+                      name="Srednia_ocen"
+                      precision="3"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data_utworzenia]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Data_utworzenia]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data_utworzenia]"
+                      name="Data_utworzenia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data_modyfikacji]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Data_modyfikacji]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data_modyfikacji]"
+                      name="Data_modyfikacji"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NrStudentaT]"
+                      dataType="i4"
+                      name="NrStudentaT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Imie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Imie" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Drugie_imie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Drugie_imie" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nazwisko]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nazwisko" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Data_urodzenia]"
+                      dataType="dbTimeStamp"
+                      name="Data_urodzenia" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PESEL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="PESEL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nr_telefonu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Nr_telefonu" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nr_konta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="26"
+                      name="Nr_konta" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Kraj]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Kraj" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Miasto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Miasto" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Ulica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Ulica" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nr_budynku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Nr_budynku" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Kod_pocztowy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Kod_pocztowy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Stopien_studiow]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Stopien_studiow" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Kierunek_studiow]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Kierunek_studiow" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Srednia_ocen]"
+                      dataType="numeric"
+                      name="Srednia_ocen"
+                      precision="3"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Data_utworzenia]"
+                      dataType="dbTimeStamp"
+                      name="Data_utworzenia" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Data_modyfikacji]"
+                      dataType="dbTimeStamp"
+                      name="Data_modyfikacji" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NrStudentaT]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NrStudentaT]"
+                      name="NrStudentaT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Imie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Imie]"
+                      name="Imie" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Drugie_imie]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Drugie_imie]"
+                      name="Drugie_imie" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nazwisko]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nazwisko]"
+                      name="Nazwisko" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Data_urodzenia]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Data_urodzenia]"
+                      name="Data_urodzenia" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PESEL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PESEL]"
+                      name="PESEL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nr_telefonu]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nr_telefonu]"
+                      name="Nr_telefonu" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nr_konta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="26"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nr_konta]"
+                      name="Nr_konta" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Kraj]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Kraj]"
+                      name="Kraj" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Miasto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Miasto]"
+                      name="Miasto" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Ulica]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Ulica]"
+                      name="Ulica" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nr_budynku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nr_budynku]"
+                      name="Nr_budynku" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Kod_pocztowy]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Kod_pocztowy]"
+                      name="Kod_pocztowy" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Stopien_studiow]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Stopien_studiow]"
+                      name="Stopien_studiow" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Kierunek_studiow]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Kierunek_studiow]"
+                      name="Kierunek_studiow" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Srednia_ocen]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Srednia_ocen]"
+                      name="Srednia_ocen"
+                      precision="3"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Data_utworzenia]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Data_utworzenia]"
+                      name="Data_utworzenia" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Data_modyfikacji]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Data_modyfikacji]"
+                      name="Data_modyfikacji" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Data_urodzenia], [Drugie_imie], [Email], [Imie], [Kierunek_studiow], [Kod_pocztowy], [Kraj], [Miasto], [Nazwisko], [Nr_budynku], [Nr_konta], [Nr_telefonu], [NrStudentaT], [PESEL], [Srednia_ocen], [Stopien_studiow], [Ulica] FROM [dbo].[DimStudent]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="{B5BE3094-7FDE-4AEA-91C7-7764B982D138}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR02_DW.ABDGR02]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Drugie_imie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Drugie_imie"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Drugie_imie]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Drugie_imie]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Email]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Imie]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Imie"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Imie]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Imie]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Kierunek_studiow]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Kierunek_studiow"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Kierunek_studiow]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kierunek_studiow]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Kod_pocztowy]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Kod_pocztowy"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Kod_pocztowy]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kod_pocztowy]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Kraj]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Kraj"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Kraj]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kraj]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Miasto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Miasto"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Miasto]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Miasto]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Nazwisko]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Nazwisko"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Nazwisko]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nazwisko]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Nr_budynku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="Nr_budynku"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Nr_budynku]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_budynku]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Nr_konta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="26"
+                      cachedName="Nr_konta"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Nr_konta]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_konta]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Nr_telefonu]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Nr_telefonu"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Nr_telefonu]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_telefonu]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[NrStudentaT]"
+                      cachedDataType="i4"
+                      cachedName="NrStudentaT"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NrStudentaT]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NrStudentaT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[PESEL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="PESEL"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PESEL]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PESEL]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Srednia_ocen]"
+                      cachedDataType="numeric"
+                      cachedName="Srednia_ocen"
+                      cachedPrecision="3"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Srednia_ocen]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Srednia_ocen]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Stopien_studiow]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Stopien_studiow"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Stopien_studiow]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Stopien_studiow]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Ulica]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Ulica"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Ulica]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ulica]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Data_urodzenia]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Data_urodzenia"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Data_urodzenia]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data_urodzenia]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Data_urodzenia]"
+                      dataType="dbTimeStamp"
+                      name="Data_urodzenia" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Drugie_imie]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="Drugie_imie" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Email]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Imie]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="Imie" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Kierunek_studiow]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="Kierunek_studiow" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Kod_pocztowy]"
+                      codePage="1250"
+                      dataType="str"
+                      length="10"
+                      name="Kod_pocztowy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Kraj]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="Kraj" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Miasto]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="Miasto" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Nazwisko]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="Nazwisko" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Nr_budynku]"
+                      codePage="1250"
+                      dataType="str"
+                      length="5"
+                      name="Nr_budynku" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Nr_konta]"
+                      codePage="1250"
+                      dataType="str"
+                      length="26"
+                      name="Nr_konta" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Nr_telefonu]"
+                      codePage="1250"
+                      dataType="str"
+                      length="15"
+                      name="Nr_telefonu" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[NrStudentaT]"
+                      dataType="i4"
+                      name="NrStudentaT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PESEL]"
+                      codePage="1250"
+                      dataType="str"
+                      length="11"
+                      name="PESEL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Srednia_ocen]"
+                      dataType="numeric"
+                      name="Srednia_ocen"
+                      precision="3"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Stopien_studiow]"
+                      codePage="1250"
+                      dataType="str"
+                      length="1"
+                      name="Stopien_studiow" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Ulica]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="Ulica" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Changing Attribute Updates Output]"
+              endId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[New Output]"
+              endId="Package\Data Flow Task\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="122,109" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="239.5,5.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Data Flow Task\Slowly Changing Dimension"
+          TopLeft="210,107.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="318,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Data Flow Task\Insert Destination"
+          TopLeft="5.50000000000006,209.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[New Output]"
+          TopLeft="283.333333333333,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-195.333333333333,60"
+              Start="0,0"
+              End="-195.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2647058823529"
+                    Point2="0,24.2647058823529"
+                    Point3="-4,24.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-191.333333333333,24.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-191.333333333333,24.2647058823529"
+                    Point2="-195.333333333333,24.2647058823529"
+                    Point3="-195.333333333333,28.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-195.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-124.758053385417,29.2647058823529,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Data Flow Task\OLE DB Command"
+          TopLeft="231.5,209.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Changing Attribute Updates Output]"
+          TopLeft="352.666666666667,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.6666666666667,60"
+              Start="0,0"
+              End="-34.6666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2647058823529"
+                    Point2="0,24.2647058823529"
+                    Point3="-4,24.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-30.6666666666667,24.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.6666666666667,24.2647058823529"
+                    Point2="-34.6666666666667,24.2647058823529"
+                    Point3="-34.6666666666667,28.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-34.6666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-95.8672395833334,29.2647058823529,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{B5BE3094-7FDE-4AEA-91C7-7764B982D138}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimStudent]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Data_urodzenia]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Data_urodzenia&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Drugie_imie]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Drugie_imie&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Email&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Imie]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Imie&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Kierunek_studiow]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Kierunek_studiow&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Kod_pocztowy]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Kod_pocztowy&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Kraj]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Kraj&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Miasto]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Miasto&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Nazwisko]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Nazwisko&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_budynku]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Nr_budynku&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_konta]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Nr_konta&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Nr_telefonu]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Nr_telefonu&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[NrStudentaT]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;NrStudentaT&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[PESEL]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PESEL&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Srednia_ocen]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Srednia_ocen&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Stopien_studiow]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Stopien_studiow&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Ulica]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Ulica&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

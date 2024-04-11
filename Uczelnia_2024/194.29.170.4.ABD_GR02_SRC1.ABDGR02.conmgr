@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="194.29.170.4.ABD_GR02_SRC1.ABDGR02"
+  DTS:DTSID="{147B4365-A8B9-4A51-9B31-9AE0DC54B622}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=194.29.170.4;User ID=ABDGR02;Initial Catalog=ABD_GR02_SRC1;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-Package-{147B4365-A8B9-4A51-9B31-9AE0DC54B622}194.29.170.4.ABD_GR02_SRC1.ABDGR02;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0xtgDV8TS0uz6dBPKiXM1QAAAAACAAAAAAAQZgAAAAEAACAAAADtI/iRLmuqqz3sG3Ct9OaozIRxTwdshWym1mSVsp5K3QAAAAAOgAAAAAIAACAAAABP9qH/vgsnvT7E7mObNu6nBAdnC728OtJiirFerbwL1oAAAADglPBqrFbs8GEuxyLuJY4O3qE6Fha4JHiAMTH/MWIlIK6yENRMl7rTpPreCGc8BCEP8+1kCkkS6F92LhE/bb6iYCxX3ZPS8f2s9cU7diKZQ4CnaDUmjonTV5w6mIa1a4t1hdlyjTgLpSpIgr721brxOardHFt63OBxYMQe8AU37EAAAADensY4azKT+3eGxB6woreGKcOwbhuK47DQUp91oed82dm78/H6JuWJIAXWIDe8pGapTaC9YdfHK6wqzgcsev2u</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

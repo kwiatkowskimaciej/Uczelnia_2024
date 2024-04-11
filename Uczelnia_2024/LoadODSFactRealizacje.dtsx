@@ -1,0 +1,570 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/5/2024 8:12:44 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VAIO"
+  DTS:CreatorName="VAIO\User"
+  DTS:DTSID="{F39FEAF6-4B62-44A0-BC14-62E27C58BF93}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{362270D1-4231-4730-9A9C-FA18B24E9B4B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Czyszczenie FactRealizacje"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1B969D83-C6FD-4989-B0CF-D2F00FEF3E96}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Czyszczenie FactRealizacje"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9A753358-61F4-4181-A459-9ED5FF6407C9}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE FactRealizacje" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ladowanie FactRealizacje"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E18D4B17-3D07-4A72-8732-2C9ADCB359B5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ladowanie FactRealizacje"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Tabela FactRealizacje"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactRealizacje]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Connections[OleDbConnection]"
+                  connectionManagerID="{9A753358-61F4-4181-A459-9ED5FF6407C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR02_ODS.ABDGR02]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].Columns[SumaOplat]"
+                      cachedDataType="r8"
+                      cachedName="SumaOplat"
+                      externalMetadataColumnId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].ExternalColumns[Sumaryczna_kwota_oplat]"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[SumaOplat]" />
+                    <inputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].Columns[NrKierunku]"
+                      cachedDataType="i4"
+                      cachedName="NrKierunku"
+                      externalMetadataColumnId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].ExternalColumns[IdKierunku]"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrKierunku]" />
+                    <inputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].Columns[NrOplaty]"
+                      cachedDataType="i4"
+                      cachedName="NrOplaty"
+                      externalMetadataColumnId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].ExternalColumns[IdOplaty]"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrOplaty]" />
+                    <inputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].Columns[NrPrzedmiotu]"
+                      cachedDataType="i4"
+                      cachedName="NrPrzedmiotu"
+                      externalMetadataColumnId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].ExternalColumns[IdPrzedmiotu]"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrPrzedmiotu]" />
+                    <inputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].Columns[NrStudenta]"
+                      cachedDataType="i4"
+                      cachedName="NrStudenta"
+                      externalMetadataColumnId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].ExternalColumns[IdStudenta]"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrStudenta]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].ExternalColumns[Sumaryczna_kwota_oplat]"
+                      dataType="numeric"
+                      name="Sumaryczna_kwota_oplat"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].ExternalColumns[IdKierunku]"
+                      dataType="i4"
+                      name="IdKierunku" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].ExternalColumns[IdOplaty]"
+                      dataType="i4"
+                      name="IdOplaty" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].ExternalColumns[IdPrzedmiotu]"
+                      dataType="i4"
+                      name="IdPrzedmiotu" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].ExternalColumns[IdStudenta]"
+                      dataType="i4"
+                      name="IdStudenta" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input].ExternalColumns[Data_utworzenia]"
+                      dataType="wstr"
+                      length="10"
+                      name="Data_utworzenia" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ladowanie FactRealizacje\Tabela Realizacje"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Tabela Realizacje"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Realizacje]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    R.NrRealizacji, 
+    R.NrPrzedmiotu,
+    O.NrOplaty,
+    R.NrStudenta,
+    SK.NrKierunku,
+    SUM(O.Kwota) as SumaOplat
+FROM 
+    Realizacje R 
+JOIN 
+    Oplaty O on R.NrStudenta = O.NrStudenta 
+JOIN 
+    StudenciKierunki SK on R.NrStudenta = SK.NrStudenta
+WHERE O.DataModyfikacji &gt;= DATEADD(DAY,-1,CAST(CURRENT_TIMESTAMP as date))
+GROUP BY 
+    R.NrRealizacji, 
+    R.NrPrzedmiotu,
+    O.NrOplaty,
+    R.NrStudenta,
+    SK.NrKierunku</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Connections[OleDbConnection]"
+                  connectionManagerID="{147B4365-A8B9-4A51-9B31-9AE0DC54B622}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR02_SRC1.ABDGR02]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrRealizacji]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].ExternalColumns[NrRealizacji]"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrRealizacji]"
+                      name="NrRealizacji"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[SumaOplat]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].ExternalColumns[SumaOplat]"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[SumaOplat]"
+                      name="SumaOplat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrPrzedmiotu]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].ExternalColumns[NrPrzedmiotu]"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrPrzedmiotu]"
+                      name="NrPrzedmiotu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrOplaty]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].ExternalColumns[NrOplaty]"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrOplaty]"
+                      name="NrOplaty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrStudenta]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].ExternalColumns[NrStudenta]"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrStudenta]"
+                      name="NrStudenta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrKierunku]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].ExternalColumns[NrKierunku]"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].Columns[NrKierunku]"
+                      name="NrKierunku"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].ExternalColumns[NrRealizacji]"
+                      dataType="i4"
+                      name="NrRealizacji" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].ExternalColumns[SumaOplat]"
+                      dataType="r8"
+                      name="SumaOplat" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].ExternalColumns[NrPrzedmiotu]"
+                      dataType="i4"
+                      name="NrPrzedmiotu" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].ExternalColumns[NrOplaty]"
+                      dataType="i4"
+                      name="NrOplaty" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].ExternalColumns[NrStudenta]"
+                      dataType="i4"
+                      name="NrStudenta" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output].ExternalColumns[NrKierunku]"
+                      dataType="i4"
+                      name="NrKierunku" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[NrRealizacji]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[NrRealizacji]"
+                      name="NrRealizacji" />
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[NrPrzedmiotu]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[NrPrzedmiotu]"
+                      name="NrPrzedmiotu" />
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[NrOplaty]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[NrOplaty]"
+                      name="NrOplaty" />
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[NrStudenta]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[NrStudenta]"
+                      name="NrStudenta" />
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[NrKierunku]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[NrKierunku]"
+                      name="NrKierunku" />
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[SumaOplat]"
+                      dataType="r8"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[SumaOplat]"
+                      name="SumaOplat" />
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Ladowanie FactRealizacje.Paths[OLE DB Source Output]"
+              endId="Package\Ladowanie FactRealizacje\Tabela FactRealizacje.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Ladowanie FactRealizacje\Tabela Realizacje.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F0B85969-677D-4B64-988A-91799EDECBB2}"
+      DTS:From="Package\Czyszczenie FactRealizacje"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Ladowanie FactRealizacje" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Czyszczenie FactRealizacje"
+          TopLeft="176,22" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Ladowanie FactRealizacje"
+          TopLeft="114,108" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="284,64">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-66,44"
+              Start="0,0"
+              End="-66,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="-4,22" />
+                  <mssgle:LineSegment
+                    End="-62,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-62,22"
+                    Point2="-66,22"
+                    Point3="-66,26" />
+                  <mssgle:LineSegment
+                    End="-66,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Ladowanie FactRealizacje">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Ladowanie FactRealizacje\Tabela FactRealizacje"
+          TopLeft="131,102" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Ladowanie FactRealizacje\Tabela Realizacje"
+          TopLeft="139,21" />
+        <EdgeLayout
+          Id="Package\Ladowanie FactRealizacje.Paths[OLE DB Source Output]"
+          TopLeft="223.75,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ladowanie FactRealizacje\Tabela FactRealizacje">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ladowanie FactRealizacje\Tabela Realizacje">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

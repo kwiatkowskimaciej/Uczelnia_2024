@@ -1,0 +1,720 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/5/2024 9:31:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VAIO"
+  DTS:CreatorName="VAIO\User"
+  DTS:DTSID="{33CD811C-231D-479E-A185-866160D7EB22}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{FBF053DA-D90D-4715-8A0A-74E8E79E8719}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Ladowanie Tabeli Dim Czas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{67946665-A06E-4234-A595-B24A096DB27C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ladowanie Tabeli Dim Czas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimCzas]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{B5BE3094-7FDE-4AEA-91C7-7764B982D138}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR02_DW.ABDGR02]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Data]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Data"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Data]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data]" />
+                    <inputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Miesiac]"
+                      cachedDataType="i2"
+                      cachedName="Miesiac"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Miesiac]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[Miesiac]" />
+                    <inputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Kwartal]"
+                      cachedDataType="i2"
+                      cachedName="Kwartal"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Kwartal]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kwartal]" />
+                    <inputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Rok]"
+                      cachedDataType="i4"
+                      cachedName="Rok"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rok]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[Rok]" />
+                    <inputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DzienTygodnia]"
+                      cachedDataType="i2"
+                      cachedName="DzienTygodnia"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DzienTygodnia]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[DzienTygodnia]" />
+                    <inputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DzienMiesiaca]"
+                      cachedDataType="i2"
+                      cachedName="DzienMiesiaca"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DzienMiesiaca]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[DzienMiesiaca]" />
+                    <inputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IdCzasu]"
+                      cachedDataType="i4"
+                      cachedName="IdCzasu"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_czasu]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdCzasu]" />
+                    <inputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NazwaMiesiacaPol]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="NazwaMiesiacaPol"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NazwaMiesiacaPolska]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaMiesiacaPol]" />
+                    <inputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NazwaMiesiacaAng]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="NazwaMiesiacaAng"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NazwaMiesiacaAngielska]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaMiesiacaAng]" />
+                    <inputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NazwaDniaTygodniaPol]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="NazwaDniaTygodniaPol"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NazwaDniaTygodniaPolska]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaDniaTygodniaPol]" />
+                    <inputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NazwaDniaTygodniaAng]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="NazwaDniaTygodniaAng"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NazwaDniaTygodniaAngielska]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaDniaTygodniaAng]" />
+                    <inputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DataUtworzenia]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DataUtworzenia"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Data_utworzenia]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataUtworzenia]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id_czasu]"
+                      dataType="i4"
+                      name="Id_czasu" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Data]"
+                      dataType="wstr"
+                      length="10"
+                      name="Data" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DzienMiesiaca]"
+                      dataType="i4"
+                      name="DzienMiesiaca" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Miesiac]"
+                      dataType="i4"
+                      name="Miesiac" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Kwartal]"
+                      dataType="i4"
+                      name="Kwartal" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rok]"
+                      dataType="i4"
+                      name="Rok" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DzienTygodnia]"
+                      dataType="i4"
+                      name="DzienTygodnia" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NazwaMiesiacaPolska]"
+                      codePage="1250"
+                      dataType="str"
+                      length="20"
+                      name="NazwaMiesiacaPolska" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NazwaMiesiacaAngielska]"
+                      codePage="1250"
+                      dataType="str"
+                      length="20"
+                      name="NazwaMiesiacaAngielska" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NazwaDniaTygodniaPolska]"
+                      codePage="1250"
+                      dataType="str"
+                      length="20"
+                      name="NazwaDniaTygodniaPolska" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NazwaDniaTygodniaAngielska]"
+                      codePage="1250"
+                      dataType="str"
+                      length="20"
+                      name="NazwaDniaTygodniaAngielska" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Data_utworzenia]"
+                      dataType="dbTimeStamp"
+                      name="Data_utworzenia" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimCzasSt]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{9A753358-61F4-4181-A459-9ED5FF6407C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR02_ODS.ABDGR02]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdCzasu]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IdCzasu]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdCzasu]"
+                      name="IdCzasu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Data]"
+                      length="10"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[Data]"
+                      name="Data"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[Miesiac]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Miesiac]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[Miesiac]"
+                      name="Miesiac"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kwartal]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Kwartal]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[Kwartal]"
+                      name="Kwartal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[Rok]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Rok]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[Rok]"
+                      name="Rok"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[DzienTygodnia]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DzienTygodnia]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[DzienTygodnia]"
+                      name="DzienTygodnia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[DzienMiesiaca]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DzienMiesiaca]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[DzienMiesiaca]"
+                      name="DzienMiesiaca"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaDniaTygodniaPol]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NazwaDniaTygodniaPol]"
+                      length="15"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaDniaTygodniaPol]"
+                      name="NazwaDniaTygodniaPol"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaDniaTygodniaAng]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NazwaDniaTygodniaAng]"
+                      length="15"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaDniaTygodniaAng]"
+                      name="NazwaDniaTygodniaAng"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaMiesiacaPol]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NazwaMiesiacaPol]"
+                      length="15"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaMiesiacaPol]"
+                      name="NazwaMiesiacaPol"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaMiesiacaAng]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NazwaMiesiacaAng]"
+                      length="15"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaMiesiacaAng]"
+                      name="NazwaMiesiacaAng"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataUtworzenia]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataUtworzenia]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataUtworzenia]"
+                      name="DataUtworzenia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataModyfikacji]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataModyfikacji]"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataModyfikacji]"
+                      name="DataModyfikacji"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IdCzasu]"
+                      dataType="i4"
+                      name="IdCzasu" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Data]"
+                      dataType="wstr"
+                      length="10"
+                      name="Data" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Miesiac]"
+                      dataType="i2"
+                      name="Miesiac" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Kwartal]"
+                      dataType="i2"
+                      name="Kwartal" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Rok]"
+                      dataType="i4"
+                      name="Rok" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DzienTygodnia]"
+                      dataType="i2"
+                      name="DzienTygodnia" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DzienMiesiaca]"
+                      dataType="i2"
+                      name="DzienMiesiaca" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NazwaDniaTygodniaPol]"
+                      codePage="1250"
+                      dataType="str"
+                      length="15"
+                      name="NazwaDniaTygodniaPol" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NazwaDniaTygodniaAng]"
+                      codePage="1250"
+                      dataType="str"
+                      length="15"
+                      name="NazwaDniaTygodniaAng" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NazwaMiesiacaPol]"
+                      codePage="1250"
+                      dataType="str"
+                      length="15"
+                      name="NazwaMiesiacaPol" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NazwaMiesiacaAng]"
+                      codePage="1250"
+                      dataType="str"
+                      length="15"
+                      name="NazwaMiesiacaAng" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataUtworzenia]"
+                      dataType="dbTimeStamp"
+                      name="DataUtworzenia" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataModyfikacji]"
+                      dataType="dbTimeStamp"
+                      name="DataModyfikacji" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IdCzasu]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IdCzasu]"
+                      name="IdCzasu" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Data]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Data]"
+                      name="Data" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Miesiac]"
+                      dataType="i2"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Miesiac]"
+                      name="Miesiac" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Kwartal]"
+                      dataType="i2"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Kwartal]"
+                      name="Kwartal" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Rok]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Rok]"
+                      name="Rok" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DzienTygodnia]"
+                      dataType="i2"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DzienTygodnia]"
+                      name="DzienTygodnia" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DzienMiesiaca]"
+                      dataType="i2"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DzienMiesiaca]"
+                      name="DzienMiesiaca" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NazwaDniaTygodniaPol]"
+                      codePage="1250"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NazwaDniaTygodniaPol]"
+                      name="NazwaDniaTygodniaPol" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NazwaDniaTygodniaAng]"
+                      codePage="1250"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NazwaDniaTygodniaAng]"
+                      name="NazwaDniaTygodniaAng" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NazwaMiesiacaPol]"
+                      codePage="1250"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NazwaMiesiacaPol]"
+                      name="NazwaMiesiacaPol" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NazwaMiesiacaAng]"
+                      codePage="1250"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NazwaMiesiacaAng]"
+                      name="NazwaMiesiacaAng" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataUtworzenia]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataUtworzenia]"
+                      name="DataUtworzenia" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataModyfikacji]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataModyfikacji]"
+                      name="DataModyfikacji" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Ladowanie Tabeli Dim Czas.Paths[OLE DB Source Output]"
+              endId="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Ladowanie Tabeli Dim Czas\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Ladowanie Tabeli Dim Czas"
+          TopLeft="130,86" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Ladowanie Tabeli Dim Czas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Ladowanie Tabeli Dim Czas\OLE DB Source"
+          TopLeft="155,58" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination"
+          TopLeft="145,158" />
+        <EdgeLayout
+          Id="Package\Ladowanie Tabeli Dim Czas.Paths[OLE DB Source Output]"
+          TopLeft="233.5,100">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ladowanie Tabeli Dim Czas\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ladowanie Tabeli Dim Czas\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

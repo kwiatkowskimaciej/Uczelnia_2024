@@ -1,0 +1,869 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/5/2024 7:01:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VAIO"
+  DTS:CreatorName="VAIO\User"
+  DTS:DTSID="{60168C18-0D31-4718-BC68-A2EA862E0EBA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{3DEE1F5F-3E71-41BC-8966-0FDC48B762FB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Czysczenie DimPrzedmiotSt"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B2F8FA74-7E84-4E42-B53C-F2B3837B9710}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Czysczenie DimPrzedmiotSt"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9A753358-61F4-4181-A459-9ED5FF6407C9}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE DimPrzedmiotSt" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ladowanie DimPrzedmiotSt"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{554A7671-7984-443A-9054-127CE524931E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ladowanie DimPrzedmiotSt"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimPrzedmiotSt]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{9A753358-61F4-4181-A459-9ED5FF6407C9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR02_ODS.ABDGR02]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ECTS]"
+                      cachedDataType="i4"
+                      cachedName="ECTS"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ECTS]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[ECTS]" />
+                    <inputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Czy_wyklad]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Czy_wyklad"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Czy_wyklad]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Czy_wyklad]" />
+                    <inputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Godzina_wykladu]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="Godzina_wykladu"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Godzina_wykladu]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Godzina_wykladu]" />
+                    <inputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Czy_cwiczenia]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Czy_cwiczenia"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Czy_cwiczenia]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Czy_cwiczenia]" />
+                    <inputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Godzina_cwiczenia]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="Godzina_cwiczenia"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Godzina_cwiczenia]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Godzina_cwiczenia]" />
+                    <inputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Czy_laboratorium]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Czy_laboratorium"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Czy_laboratorium]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Czy_laboratorium]" />
+                    <inputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Liczba_miejsc]"
+                      cachedDataType="i4"
+                      cachedName="Liczba_miejsc"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Liczba_miejsc]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Liczba_miejsc]" />
+                    <inputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NrPrzedmiotu]"
+                      cachedDataType="i4"
+                      cachedName="NrPrzedmiotu"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NrPrzedmiotuT]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[NrPrzedmiotu]" />
+                    <inputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NazwaWydzialu]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NazwaWydzialu"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nazwa_wydzialu]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaWydzialu]" />
+                    <inputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NazwaUczelni]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NazwaUczelni"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nazwa_uczelni]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaUczelni]" />
+                    <inputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Godzina_laboratorium]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="Godzina_laboratorium"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Godzina_laboratorium]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Godzina_laboratorium]" />
+                    <inputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Nazwa]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Nazwa"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nazwa]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nazwa]" />
+                    <inputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Opis]"
+                      cachedCodepage="1250"
+                      cachedDataType="str"
+                      cachedLength="1000"
+                      cachedName="Opis"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Opis]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Opis]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NrPrzedmiotuT]"
+                      dataType="i4"
+                      name="NrPrzedmiotuT" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nazwa]"
+                      codePage="1250"
+                      dataType="str"
+                      length="255"
+                      name="Nazwa" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Opis]"
+                      codePage="1250"
+                      dataType="str"
+                      length="1000"
+                      name="Opis" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ECTS]"
+                      dataType="i4"
+                      name="ECTS" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Czy_wyklad]"
+                      codePage="1250"
+                      dataType="str"
+                      length="1"
+                      name="Czy_wyklad" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Godzina_wykladu]"
+                      dataType="wstr"
+                      length="16"
+                      name="Godzina_wykladu" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Czy_cwiczenia]"
+                      codePage="1250"
+                      dataType="str"
+                      length="1"
+                      name="Czy_cwiczenia" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Godzina_cwiczenia]"
+                      dataType="wstr"
+                      length="16"
+                      name="Godzina_cwiczenia" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Czy_laboratorium]"
+                      codePage="1250"
+                      dataType="str"
+                      length="1"
+                      name="Czy_laboratorium" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Godzina_laboratorium]"
+                      dataType="wstr"
+                      length="16"
+                      name="Godzina_laboratorium" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Liczba_miejsc]"
+                      dataType="i4"
+                      name="Liczba_miejsc" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nazwa_wydzialu]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="Nazwa_wydzialu" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nazwa_uczelni]"
+                      codePage="1250"
+                      dataType="str"
+                      length="100"
+                      name="Nazwa_uczelni" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Data_utworzenia]"
+                      dataType="dbTimeStamp"
+                      name="Data_utworzenia" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Data_modyfikacji]"
+                      dataType="dbTimeStamp"
+                      name="Data_modyfikacji" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    P.NrPrzedmiotu,
+    P.Nazwa,
+    P.Opis,
+    P.ECTS,
+    P.Czy_wyklad,
+    P.Godzina_wykladu,
+    P.Czy_cwiczenia,
+    P.Godzina_cwiczenia,
+    P.Czy_laboratorium,
+    P.Godzina_laboratorium,
+    P.Liczba_miejsc,
+    W.Nazwa AS NazwaWydzialu,
+    U.Nazwa AS NazwaUczelni,
+    P.DataModyfikacji
+FROM 
+    Przedmioty P
+JOIN 
+    WydzialyKierunki WK ON P.NrPrzedmiotu = WK.NrKierunku
+JOIN 
+    Wydzialy W ON WK.NrWydzialu = W.NrWydzialu
+JOIN 
+    Uczelnie U ON W.NrUczelni = U.NrUczelni
+JOIN 
+    Kierunki K ON WK.NrKierunku = K.NrKierunku
+WHERE P.DataModyfikacji &gt;= DATEADD(DAY,-1,CAST(CURRENT_TIMESTAMP as date))</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{147B4365-A8B9-4A51-9B31-9AE0DC54B622}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[194.29.170.4.ABD_GR02_SRC1.ABDGR02]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[NrPrzedmiotu]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NrPrzedmiotu]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[NrPrzedmiotu]"
+                      name="NrPrzedmiotu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[ECTS]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ECTS]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[ECTS]"
+                      name="ECTS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Czy_wyklad]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Czy_wyklad]"
+                      length="1"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Czy_wyklad]"
+                      name="Czy_wyklad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Godzina_wykladu]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Godzina_wykladu]"
+                      length="16"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Godzina_wykladu]"
+                      name="Godzina_wykladu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Czy_cwiczenia]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Czy_cwiczenia]"
+                      length="1"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Czy_cwiczenia]"
+                      name="Czy_cwiczenia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Godzina_cwiczenia]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Godzina_cwiczenia]"
+                      length="16"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Godzina_cwiczenia]"
+                      name="Godzina_cwiczenia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Czy_laboratorium]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Czy_laboratorium]"
+                      length="1"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Czy_laboratorium]"
+                      name="Czy_laboratorium"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Liczba_miejsc]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Liczba_miejsc]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Liczba_miejsc]"
+                      name="Liczba_miejsc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaWydzialu]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NazwaWydzialu]"
+                      length="50"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaWydzialu]"
+                      name="NazwaWydzialu"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaUczelni]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NazwaUczelni]"
+                      length="50"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[NazwaUczelni]"
+                      name="NazwaUczelni"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataModyfikacji]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataModyfikacji]"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[DataModyfikacji]"
+                      name="DataModyfikacji"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Godzina_laboratorium]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Godzina_laboratorium]"
+                      length="16"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Godzina_laboratorium]"
+                      name="Godzina_laboratorium"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nazwa]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nazwa]"
+                      length="30"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nazwa]"
+                      name="Nazwa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Opis]"
+                      codePage="1250"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Opis]"
+                      length="1000"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].Columns[Opis]"
+                      name="Opis"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NrPrzedmiotu]"
+                      dataType="i4"
+                      name="NrPrzedmiotu" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ECTS]"
+                      dataType="i4"
+                      name="ECTS" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Czy_wyklad]"
+                      codePage="1250"
+                      dataType="str"
+                      length="1"
+                      name="Czy_wyklad" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Godzina_wykladu]"
+                      dataType="wstr"
+                      length="16"
+                      name="Godzina_wykladu" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Czy_cwiczenia]"
+                      codePage="1250"
+                      dataType="str"
+                      length="1"
+                      name="Czy_cwiczenia" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Godzina_cwiczenia]"
+                      dataType="wstr"
+                      length="16"
+                      name="Godzina_cwiczenia" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Czy_laboratorium]"
+                      codePage="1250"
+                      dataType="str"
+                      length="1"
+                      name="Czy_laboratorium" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Liczba_miejsc]"
+                      dataType="i4"
+                      name="Liczba_miejsc" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NazwaWydzialu]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="NazwaWydzialu" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NazwaUczelni]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      name="NazwaUczelni" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DataModyfikacji]"
+                      dataType="dbTimeStamp"
+                      name="DataModyfikacji" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Godzina_laboratorium]"
+                      dataType="wstr"
+                      length="16"
+                      name="Godzina_laboratorium" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nazwa]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      name="Nazwa" />
+                    <externalMetadataColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Opis]"
+                      codePage="1250"
+                      dataType="str"
+                      length="1000"
+                      name="Opis" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NrPrzedmiotu]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NrPrzedmiotu]"
+                      name="NrPrzedmiotu" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nazwa]"
+                      codePage="1250"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nazwa]"
+                      name="Nazwa" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Opis]"
+                      codePage="1250"
+                      dataType="str"
+                      length="1000"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Opis]"
+                      name="Opis" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ECTS]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ECTS]"
+                      name="ECTS" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Czy_wyklad]"
+                      codePage="1250"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Czy_wyklad]"
+                      name="Czy_wyklad" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Godzina_wykladu]"
+                      dataType="wstr"
+                      length="16"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Godzina_wykladu]"
+                      name="Godzina_wykladu" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Czy_cwiczenia]"
+                      codePage="1250"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Czy_cwiczenia]"
+                      name="Czy_cwiczenia" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Godzina_cwiczenia]"
+                      dataType="wstr"
+                      length="16"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Godzina_cwiczenia]"
+                      name="Godzina_cwiczenia" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Czy_laboratorium]"
+                      codePage="1250"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Czy_laboratorium]"
+                      name="Czy_laboratorium" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Godzina_laboratorium]"
+                      dataType="wstr"
+                      length="16"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Godzina_laboratorium]"
+                      name="Godzina_laboratorium" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Liczba_miejsc]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Liczba_miejsc]"
+                      name="Liczba_miejsc" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NazwaWydzialu]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NazwaWydzialu]"
+                      name="NazwaWydzialu" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NazwaUczelni]"
+                      codePage="1250"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NazwaUczelni]"
+                      name="NazwaUczelni" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataModyfikacji]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DataModyfikacji]"
+                      name="DataModyfikacji" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Ladowanie DimPrzedmiotSt.Paths[OLE DB Source Output]"
+              endId="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Ladowanie DimPrzedmiotSt\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{395C366D-FD27-49EE-B530-F6673A85096D}"
+      DTS:From="Package\Czysczenie DimPrzedmiotSt"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Ladowanie DimPrzedmiotSt" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Czysczenie DimPrzedmiotSt"
+          TopLeft="77,39" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Ladowanie DimPrzedmiotSt"
+          TopLeft="82,113" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="187.75,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Ladowanie DimPrzedmiotSt">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Ladowanie DimPrzedmiotSt\OLE DB Source"
+          TopLeft="184,31" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination"
+          TopLeft="171,148" />
+        <EdgeLayout
+          Id="Package\Ladowanie DimPrzedmiotSt.Paths[OLE DB Source Output]"
+          TopLeft="261,73">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75"
+              Start="0,0"
+              End="0,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ladowanie DimPrzedmiotSt\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ladowanie DimPrzedmiotSt\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
